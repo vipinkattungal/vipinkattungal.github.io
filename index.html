@@ -1,35 +1,19 @@
-<?php
-$to = "vipinkattungal@gmail.com, vyusprojects@gmail.com";
-$subject = "HTML email";
-
-$message = "
+<!DOCTYPE html>
 <html>
-<head>
-<title>HTML email</title>
-</head>
 <body>
-<p>This email contains HTML Tags!</p>
-<table>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>
-<tr>
-<td>John</td>
-<td>Doe</td>
-</tr>
-</table>
+
+<h2>Send e-mail to someone@example.com:</h2>
+
+<form action="email.php" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name"><br>
+E-mail:<br>
+<input type="text" name="mail"><br>
+Comment:<br>
+<input type="text" name="comment" size="50"><br><br>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+
 </body>
 </html>
-";
-
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <webmaster@example.com>' . "\r\n";
-$headers .= 'Cc: vipinkattungal@gmail.com.com' . "\r\n";
-
-mail($to,$subject,$message,$headers);
-?> 
