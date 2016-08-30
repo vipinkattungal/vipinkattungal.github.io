@@ -34,7 +34,7 @@ if(isset($_POST['submit'])) {
  
     // validation expected data exists
  
-    if(!isset($_POST['first_name']) ||
+    if(!isset($_POST['fname']) ||
  
         !isset($_POST['last_name']) ||
  
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])) {
  
         !isset($_POST['telephone']) ||
  
-        !isset($_POST['comments'])) {
+        !isset($_POST['comment'])) {
  
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
  
@@ -50,15 +50,15 @@ if(isset($_POST['submit'])) {
  
      
  
-    $first_name = $_POST['first_name']; // required
+    $first_name = $_POST['fname']; // required
  
-    $last_name = $_POST['last_name']; // required
+   <!-- $last_name = $_POST['last_name']; --> // required
  
     $email_from = $_POST['email']; // required
  
     $telephone = $_POST['telephone']; // not required
  
-    $comments = $_POST['comments']; // required
+    $comments = $_POST['comment']; // required
  
      
  
@@ -74,7 +74,7 @@ if(isset($_POST['submit'])) {
  
     $string_exp = "/^[A-Za-z .'-]+$/";
  
-  if(!preg_match($string_exp,$first_name)) {
+  if(!preg_match($string_exp,$fname)) {
  
     $error_message .= 'The First Name you entered does not appear to be valid.<br />';
  
@@ -86,7 +86,7 @@ if(isset($_POST['submit'])) {
  
   }
  
-  if(strlen($comments) < 2) {
+  if(strlen($comment) < 2) {
  
     $error_message .= 'The Comments you entered do not appear to be valid.<br />';
  
@@ -112,15 +112,15 @@ if(isset($_POST['submit'])) {
  
      
  
-    $email_message .= "First Name: ".clean_string($first_name)."\n";
+    $email_message .= "First Name: ".clean_string($fname)."\n";
  
     $email_message .= "Last Name: ".clean_string($last_name)."\n";
  
-    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "Email: ".clean_string($email)."\n";
  
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
  
-    $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Comments: ".clean_string($comment)."\n";
  
      
  
